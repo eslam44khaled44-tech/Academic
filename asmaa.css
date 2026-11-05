@@ -1,0 +1,247 @@
+/* =================================
+   1. General Settings
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #153F43,
+        #367C78,
+        #8BC4B8
+    );
+}
+
+
+/* =================================
+   2. Glass Bubbles Background
+================================= */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        100px 120px 0 -60px rgba(255,255,255,0.25),
+        220px -80px 0 -45px rgba(255,255,255,0.22),
+        350px 160px 0 -55px rgba(255,255,255,0.20),
+        480px -100px 0 -65px rgba(255,255,255,0.25),
+        600px 100px 0 -40px rgba(255,255,255,0.20),
+        750px -150px 0 -55px rgba(255,255,255,0.22),
+        850px 200px 0 -65px rgba(255,255,255,0.20);
+
+    pointer-events: none;
+    z-index: 5;
+
+    animation: bubbleMove 14s linear infinite;
+}
+
+body::before {
+    left: 5%;
+    bottom: -200px;
+}
+
+body::after {
+    left: 45%;
+    bottom: -250px;
+    width: 120px;
+    height: 120px;
+    animation-duration: 19s;
+    animation-delay: 3s;
+}
+
+
+@keyframes bubbleMove {
+
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-60vh) translateX(70px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateY(-130vh) translateX(-40px) rotate(360deg);
+    }
+}
+
+
+/* =================================
+   3. Glass Main Container
+================================= */
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    padding: 55px 40px;
+
+    background: rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =================================
+   4. Main Heading
+================================= */
+
+h1 {
+    color: #FFFFFF;
+    font-size: 38px;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =================================
+   5. Welcome Message
+================================= */
+
+.welcome {
+    color: #F0FFFF;
+    font-size: 18px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+
+/* =================================
+   6. System Status
+================================= */
+
+.status {
+    background: rgba(255, 255, 255, 0.18);
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.status h2 {
+    color: #FFFFFF;
+    font-size: 22px;
+}
+
+
+/* =================================
+   7. Instructions
+================================= */
+
+.instruction {
+    color: #F5FFFF;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   8. Console Message
+================================= */
+
+.console-message {
+    background: rgba(20, 65, 67, 0.55);
+    color: #FFFFFF;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/* =================================
+   9. Responsive Design
+================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .welcome {
+        font-size: 15px;
+    }
+
+    .status h2 {
+        font-size: 18px;
+    }
+
+    .instruction {
+        font-size: 14px;
+    }
+
+    .console-message {
+        font-size: 14px;
+    }
+}
+
+.console-message {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.console-message:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.console-message {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.console-message:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.console-instructions {
+    color: white;
+    margin-top: 20px;
+    line-height: 1.8;
+    font-weight: bold;
+}
